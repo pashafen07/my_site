@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script>
+			function addTask()
+			{
+				var tasks_list = document.getElementById('current'); /* Создаём переменную  tasks_list и помещаём туда елемент с id current */
+				var new_task = document.createElement('li'); /* Создаём переменную  new_task и создаём там елемент списка tasks_list */
+				new_task.innerHTML = prompt("Какую задачу добавить?"); /* В переменную new_task помещаём функцию prompt */
+				tasks_list.appendChild(new_task); /* В переменную tasks_list помещаём new_task */
+			}
+			function delTask()
+			{
+				var tasks_list = document.getElementById('current'); /* Создаём переменную  tasks_list и помещаём туда елемент с id current */
+				var task_number = prompt("Какую по номеру задачу переместить?"); /* Создаём переменную  task_number и помещаём туда функцию prompt*/
+				
+				var taskDel = tasks_list.childNodes[task_number]; /* Создаём переменную  taskDel елемент из переменной tasks_list по номеру task_number */
+				tasks_list.removeChild(taskDel); /* Из переменной tasks_list удаляем елемент taskDel */
+				var tasks_del_list = document.getElementById('done'); /* Создаём переменную  tasks_del_list и помещаём туда елемент с id done */
+				tasks_del_list.appendChild(taskDel); /* Создаём переменную  tasks_del_list и создаём там елемент списка taskDel */
+			}
+		
+		</script>
+	</head>
+	<body>
+		<input value="Добавить задачу" type="button" onclick="addTask();">
+		<input value="Удалить задачу" type="button" onclick="delTask();">
+		<h1>Текущие задачи</h1>
+		<ol id="current">
+			
+		</ol>
+		<h1>Завершенные задачи</h1>
+		<ol id="done">
+			
+		</ol>
+	</body>
+</html>
